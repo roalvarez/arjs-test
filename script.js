@@ -51,8 +51,10 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         places = loadPlaces(position.coords);
         places.forEach((place) => {
-            const latitude = place.location.lat;
-            const longitude = place.location.lng;
+            //const latitude = place.location.lat;
+            //const longitude = place.location.lng;
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
 
             // add place name
             const placeText = document.createElement('a-link');
