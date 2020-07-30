@@ -16,7 +16,7 @@ function loadPlacesAPI(position) {
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
-        &limit=30 
+        &limit=30
         &v=${params.version}`;
     return fetch(endpoint)
         .then((res) => {
@@ -49,25 +49,23 @@ window.onload = () => {
     return navigator.geolocation.getCurrentPosition(function (position) {
 
         // than use it to load from remote APIs some places nearby
-        loadPlaces(position.coords)
-            .then((places) => {
-                places.forEach((place) => {
-                    const latitude = place.location.lat;
-                    const longitude = place.location.lng;
+        places = loadPlaces(position.coords);
+        places.forEach((place) => {
+            const latitude = place.location.lat;
+            const longitude = place.location.lng;
 
-                    // add place name
-                    const placeText = document.createElement('a-link');
-                    placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-                    placeText.setAttribute('title', place.name);
-                    placeText.setAttribute('scale', '15 15 15');
-                    
-                    placeText.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                    });
+            // add place name
+            const placeText = document.createElement('a-link');
+            placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+            placeText.setAttribute('title', place.name);
+            placeText.setAttribute('scale', '15 15 15');
 
-                    scene.appendChild(placeText);
-                });
-            })
+            placeText.addEventListener('loaded', () => {
+                window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+            });
+
+            scene.appendChild(placeText);
+        });
     },
         (err) => console.error('Error in retrieving position', err),
         {
