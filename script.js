@@ -35,8 +35,8 @@ function loadPlaces(position) {
     {
       name: 'Intendencia de Montevideo',
       location: {
-        lat: -34.906540,
-        lng: -56.185360,
+        lat: -34.905680,
+        lng: -56.183540,
       },
     },
   ];
@@ -51,10 +51,8 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         places = loadPlaces(position.coords);
         places.forEach((place) => {
-            //const latitude = place.location.lat;
-            //const longitude = place.location.lng;
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+            const latitude = place.location.lat;
+            const longitude = place.location.lng;
 
             // add place name
             const placeText = document.createElement('a-link');
