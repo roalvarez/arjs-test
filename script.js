@@ -35,8 +35,8 @@ function loadPlaces(position) {
     {
       name: 'Intendencia de Montevideo',
       location: {
-        lat: -34.906549,
-        lng: -56.185364,
+        lat: -34.906540,
+        lng: -56.185360,
       },
     },
   ];
