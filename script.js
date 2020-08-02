@@ -49,7 +49,7 @@ window.onload = () => {
     placeText.setAttribute('gps-entity-place', 'latitude: -34.905680; longitude: -56.183540;');
     placeText.setAttribute('title', 'lugar');
     placeText.setAttribute('scale', "15 15 15");
-
+    placeText.scale = '15 15 15';
     scene.appendChild(placeText);
 
     // first get current user location
