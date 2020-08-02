@@ -51,11 +51,11 @@ window.onload = () => {
         // than use it to load from remote APIs some places nearby
         places = loadPlaces(position.coords);
         places.forEach((place) => {
-            const latitude = place.location.lat;
-            const longitude = place.location.lng;
+            let latitude = place.location.lat;
+            let longitude = place.location.lng;
 
             // add place name
-            const placeText = document.createElement('a-link');
+            let placeText = document.createElement('a-link');
             placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
             placeText.setAttribute('title', place.name);
             placeText.setAttribute('scale', '15 15 15');
