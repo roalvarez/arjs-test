@@ -45,15 +45,7 @@ function loadPlaces(position) {
 window.onload = () => {
     const scene = document.querySelector('a-scene');
 
-    let placeText = document.createElement('a-link');
-    placeText.setAttribute('gps-entity-place', 'latitude: -34.905680; longitude: -56.183540;');
-    placeText.setAttribute('title', 'lugar');
-    placeText.setAttribute('scale', "15 15 15");
-    placeText.scale = '15 15 15';
-    scene.appendChild(placeText);
-
     // first get current user location
-    /*
     return navigator.geolocation.getCurrentPosition(function (position) {
 
         // than use it to load from remote APIs some places nearby
@@ -82,5 +74,4 @@ window.onload = () => {
             timeout: 27000,
         }
     );
-    */
 };
